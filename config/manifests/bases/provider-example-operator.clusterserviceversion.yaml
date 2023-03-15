@@ -1,0 +1,60 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: ClusterServiceVersion
+metadata:
+  annotations:
+    alm-examples: '[]'
+    capabilities: Basic Install
+  name: provider-example-operator.v0.0.0
+  namespace: placeholder
+spec:
+  apiservicedefinitions: {}
+  customresourcedefinitions:
+    owned:
+    - description: ProviderConnection is the Schema for the providerconnections API
+      displayName: Provider Connection
+      kind: ProviderConnection
+      name: providerconnections.dbaas.redhat.com.provider.com
+      version: v1alpha1
+    - description: ProviderInstance is the Schema for the providerinstances API
+      displayName: Provider Instance
+      kind: ProviderInstance
+      name: providerinstances.dbaas.redhat.com.provider.com
+      version: v1alpha1
+    - description: ProviderInventory is the Schema for the providerinventories API
+      displayName: Provider Inventory
+      kind: ProviderInventory
+      name: providerinventories.dbaas.redhat.com.provider.com
+      version: v1alpha1
+  description: provides a operator examples for integrating database providers with
+    the OpenShift Database Access/DBaaS Operator. The examples are intended to help
+    developers understand how to create their operator and use the operator to with
+    DBaaS operator
+  displayName: Provider Example Operator
+  icon:
+  - base64data: ""
+    mediatype: ""
+  install:
+    spec:
+      deployments: null
+    strategy: ""
+  installModes:
+  - supported: false
+    type: OwnNamespace
+  - supported: false
+    type: SingleNamespace
+  - supported: false
+    type: MultiNamespace
+  - supported: true
+    type: AllNamespaces
+  keywords:
+  - dbaas
+  - openshift
+  - database
+  links:
+  - name: Provider Example Operator
+    url: https://provider-example-operator.domain
+  maturity: alpha
+  provider:
+    name: provider-example-operator
+    url: https://github.com/redhatHameed/provider-example-operator
+  version: 0.0.0

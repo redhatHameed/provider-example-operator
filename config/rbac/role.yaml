@@ -1,0 +1,85 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: manager-role
+rules:
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerconnections
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerconnections/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerconnections/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerinstances
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerinstances/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerinstances/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerinventories
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerinventories/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerinventories/status
+  verbs:
+  - get
+  - patch
+  - update
