@@ -1,0 +1,6 @@
+apiVersion: dbaas.redhat.com.provider.com/v1alpha1
+kind: ProviderConnection
+metadata:
+  name: providerconnection-sample
+spec:
+  # TODO(user): Add fields here

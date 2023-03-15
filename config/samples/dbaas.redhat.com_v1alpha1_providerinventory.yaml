@@ -1,0 +1,6 @@
+apiVersion: dbaas.redhat.com.provider.com/v1alpha1
+kind: ProviderInventory
+metadata:
+  name: providerinventory-sample
+spec:
+  # TODO(user): Add fields here

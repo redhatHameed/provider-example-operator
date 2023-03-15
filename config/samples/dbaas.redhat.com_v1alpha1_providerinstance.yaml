@@ -1,0 +1,6 @@
+apiVersion: dbaas.redhat.com.provider.com/v1alpha1
+kind: ProviderInstance
+metadata:
+  name: providerinstance-sample
+spec:
+  # TODO(user): Add fields here

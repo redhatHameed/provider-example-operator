@@ -1,0 +1,24 @@
+# permissions for end users to edit providerconnections.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: providerconnection-editor-role
+rules:
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerconnections
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerconnections/status
+  verbs:
+  - get

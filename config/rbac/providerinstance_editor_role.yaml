@@ -1,0 +1,24 @@
+# permissions for end users to edit providerinstances.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: providerinstance-editor-role
+rules:
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerinstances
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - dbaas.redhat.com.provider.com
+  resources:
+  - providerinstances/status
+  verbs:
+  - get
