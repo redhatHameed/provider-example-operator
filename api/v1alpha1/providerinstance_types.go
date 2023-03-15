@@ -17,26 +17,12 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"github.com/RHEcosystemAppEng/dbaas-operator/api/v1beta1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
-
-// ProviderInstanceSpec defines the desired state of ProviderInstance
-type ProviderInstanceSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of ProviderInstance. Edit providerinstance_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
-}
-
-// ProviderInstanceStatus defines the observed state of ProviderInstance
-type ProviderInstanceStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-}
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
@@ -46,8 +32,8 @@ type ProviderInstance struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   ProviderInstanceSpec   `json:"spec,omitempty"`
-	Status ProviderInstanceStatus `json:"status,omitempty"`
+	Spec   v1beta1.DBaaSInventorySpec   `json:"spec,omitempty"`
+	Status v1beta1.DBaaSInventoryStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true

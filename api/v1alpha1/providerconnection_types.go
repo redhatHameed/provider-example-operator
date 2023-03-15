@@ -17,26 +17,12 @@ limitations under the License.
 package v1alpha1
 
 import (
+	"github.com/RHEcosystemAppEng/dbaas-operator/api/v1beta1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // EDIT THIS FILE!  THIS IS SCAFFOLDING FOR YOU TO OWN!
 // NOTE: json tags are required.  Any new fields you add must have json tags for the fields to be serialized.
-
-// ProviderConnectionSpec defines the desired state of ProviderConnection
-type ProviderConnectionSpec struct {
-	// INSERT ADDITIONAL SPEC FIELDS - desired state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-
-	// Foo is an example field of ProviderConnection. Edit providerconnection_types.go to remove/update
-	Foo string `json:"foo,omitempty"`
-}
-
-// ProviderConnectionStatus defines the observed state of ProviderConnection
-type ProviderConnectionStatus struct {
-	// INSERT ADDITIONAL STATUS FIELD - define observed state of cluster
-	// Important: Run "make" to regenerate code after modifying this file
-}
 
 //+kubebuilder:object:root=true
 //+kubebuilder:subresource:status
@@ -46,8 +32,8 @@ type ProviderConnection struct {
 	metav1.TypeMeta   `json:",inline"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
 
-	Spec   ProviderConnectionSpec   `json:"spec,omitempty"`
-	Status ProviderConnectionStatus `json:"status,omitempty"`
+	Spec   v1beta1.DBaaSConnectionSpec   `json:"spec,omitempty"`
+	Status v1beta1.DBaaSConnectionStatus `json:"status,omitempty"`
 }
 
 //+kubebuilder:object:root=true
