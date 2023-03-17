@@ -18,6 +18,9 @@ package main
 
 import (
 	"flag"
+	dbaasv1beta1 "github.com/RHEcosystemAppEng/dbaas-operator/api/v1beta1"
+	"github.com/redhatHameed/provider-example-operator/controllers/testutil"
+	"k8s.io/client-go/kubernetes"
 	"os"
 
 	// Import all Kubernetes client auth plugins (e.g. Azure, GCP, OIDC, etc.)
@@ -43,6 +46,7 @@ var (
 
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
+	utilruntime.Must(dbaasv1beta1.AddToScheme(scheme))
 
 	utilruntime.Must(dbaasredhatcomv1alpha1.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
@@ -78,9 +82,13 @@ func main() {
 		os.Exit(1)
 	}
 
-	if err = (&controllers.ProviderInventoryReconciler{
+	fakeService := &testutil.FakeProviderService{
 		Client: mgr.GetClient(),
-		Scheme: mgr.GetScheme(),
+	}
+
+	if err = (&controllers.ProviderInventoryReconciler{
+		DBaaSProviderService: fakeService,
+		Scheme:               mgr.GetScheme(),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "ProviderInventory")
 		os.Exit(1)
@@ -99,6 +107,23 @@ func main() {
 		setupLog.Error(err, "unable to create controller", "controller", "ProviderInstance")
 		os.Exit(1)
 	}
+
+	//Provider Registeration with DBaaS
+	cfg := mgr.GetConfig()
+	clientSet, err := kubernetes.NewForConfig(cfg)
+	if err != nil {
+		setupLog.Error(err, "unable to create clientset")
+		os.Exit(1)
+	}
+	if err = (&controllers.DBaaSProviderReconciler{
+		Client:    mgr.GetClient(),
+		Scheme:    mgr.GetScheme(),
+		Clientset: clientSet,
+	}).SetupWithManager(mgr); err != nil {
+		setupLog.Error(err, "unable to create controller", "controller", "DBaaSProvider")
+		os.Exit(1)
+	}
+
 	//+kubebuilder:scaffold:builder
 
 	if err := mgr.AddHealthzCheck("healthz", healthz.Ping); err != nil {

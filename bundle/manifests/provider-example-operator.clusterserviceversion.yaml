@@ -66,6 +66,34 @@ spec:
       clusterPermissions:
       - rules:
         - apiGroups:
+          - apps
+          resources:
+          - deployments
+          verbs:
+          - get
+          - list
+          - watch
+        - apiGroups:
+          - dbaas.redhat.com
+          resources:
+          - dbaasproviders
+          verbs:
+          - create
+          - delete
+          - get
+          - list
+          - patch
+          - update
+          - watch
+        - apiGroups:
+          - dbaas.redhat.com
+          resources:
+          - dbaasproviders/status
+          verbs:
+          - get
+          - patch
+          - update
+        - apiGroups:
           - dbaas.redhat.com.provider.com
           resources:
           - providerconnections
