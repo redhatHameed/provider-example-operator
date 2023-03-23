@@ -1,4 +1,4 @@
-apiVersion: dbaas.redhat.com.provider.com/v1alpha1
+apiVersion: dbaas.redhat.com/v1alpha1
 kind: ProviderConnection
 metadata:
   name: providerconnection-sample

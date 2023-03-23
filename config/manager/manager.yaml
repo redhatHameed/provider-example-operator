@@ -33,6 +33,7 @@ spec:
         - --leader-elect
         image: controller:latest
         name: manager
+        imagePullPolicy: Always
         securityContext:
           allowPrivilegeEscalation: false
         livenessProbe:
@@ -56,5 +57,12 @@ spec:
           requests:
             cpu: 10m
             memory: 64Mi
+        env:
+          - name: INSTALL_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          - name: SYNC_PERIOD_MIN
+            value: 180
       serviceAccountName: controller-manager
       terminationGracePeriodSeconds: 10

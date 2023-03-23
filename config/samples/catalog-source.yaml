@@ -1,0 +1,9 @@
+apiVersion: operators.coreos.com/v1alpha1
+kind: CatalogSource
+metadata:
+  name: provider-example-operator
+  namespace: openshift-marketplace
+spec:
+  sourceType: grpc
+  image: quay.io/<org>/provider-example-operator-catalog:v0.0.1
+  displayName: DBaaS Operator

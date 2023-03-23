@@ -33,9 +33,9 @@ type ProviderInstanceReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=dbaas.redhat.com.provider.com,resources=providerinstances,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=dbaas.redhat.com.provider.com,resources=providerinstances/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=dbaas.redhat.com.provider.com,resources=providerinstances/finalizers,verbs=update
+//+kubebuilder:rbac:groups=dbaas.redhat.com,resources=providerinstances,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=dbaas.redhat.com,resources=providerinstances/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=dbaas.redhat.com,resources=providerinstances/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
@@ -49,7 +49,7 @@ type ProviderInstanceReconciler struct {
 func (r *ProviderInstanceReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
 	_ = log.FromContext(ctx)
 
-	// TODO(user): your logic here
+	//logger := log.FromContext(ctx, "ProviderInstance", req.NamespacedName)
 
 	return ctrl.Result{}, nil
 }

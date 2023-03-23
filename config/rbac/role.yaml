@@ -34,7 +34,7 @@ rules:
   - patch
   - update
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerconnections
   verbs:
@@ -46,13 +46,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerconnections/finalizers
   verbs:
   - update
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerconnections/status
   verbs:
@@ -60,7 +60,7 @@ rules:
   - patch
   - update
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinstances
   verbs:
@@ -72,13 +72,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinstances/finalizers
   verbs:
   - update
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinstances/status
   verbs:
@@ -86,7 +86,7 @@ rules:
   - patch
   - update
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinventories
   verbs:
@@ -98,13 +98,13 @@ rules:
   - update
   - watch
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinventories/finalizers
   verbs:
   - update
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinventories/status
   verbs:

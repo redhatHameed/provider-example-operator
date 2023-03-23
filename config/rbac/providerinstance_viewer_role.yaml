@@ -5,7 +5,7 @@ metadata:
   name: providerinstance-viewer-role
 rules:
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinstances
   verbs:
@@ -13,7 +13,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinstances/status
   verbs:

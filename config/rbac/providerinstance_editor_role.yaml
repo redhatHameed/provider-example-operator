@@ -5,7 +5,7 @@ metadata:
   name: providerinstance-editor-role
 rules:
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinstances
   verbs:
@@ -17,7 +17,7 @@ rules:
   - update
   - watch
 - apiGroups:
-  - dbaas.redhat.com.provider.com
+  - dbaas.redhat.com
   resources:
   - providerinstances/status
   verbs:
